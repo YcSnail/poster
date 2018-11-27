@@ -4,21 +4,85 @@ const app = getApp()
 
 Page({
   data: {
+    images: [],
+    imageMode:'scaleToFill',
+
     motto: '测试数据绑定',
     clicknum:0,
     userInfo: {},
     hasUserInfo: false,
-    src:'../../images/a.jpg',
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
-  countclick:function(){
+  chooseImage:function() {
 
-    var setNum =  this.data.clicknum +=1;
-    this.setData({
-      clicknum: setNum
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],  //可选择原图或压缩后的图片
+      sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
+      success: res => {
+        const imagesObj = {
+           src : res.tempFilePaths[0]
+          }
+        console.log(res);
+        const newImg = this.data.images.concat(imagesObj);
+        this.setData({
+          images: newImg
+        })
+        console.log(this.data.images);
+
+      }
     })
+  },
 
+  // 保存图片处理函数
+  saveImage:function(){
+    const data = new Uint8ClampedArray([255, 215, 216, 1])
+    wx.canvasPutImageData({
+      canvasId: 'myCanvas',
+      x: 0,
+      y: 0,
+      width: 1,
+      data: data,
+      success(res) {
+        console.log(res) 
+
+        wx.canvasToTempFilePath({
+          x: 100,
+          y: 200,
+          width: 50,
+          height: 50,
+          destWidth: 100,
+          destHeight: 100,
+          canvasId: 'myCanvas',
+          success(res) {
+            console.log(res.tempFilePath)
+          }
+        })
+
+       }
+    })
+  },
+
+  clickMe: function () {
+    wx.canvasToTempFilePath({
+      canvasId: 'testCanvas',
+      fileType: 'jpg',
+      success: function (res) {
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success(res) {
+            console.log(res)
+            wx.hideLoading();
+            wx.showToast({
+              title: '保存成功',
+            });
+          },
+          fail() {
+            wx.hideLoading()
+          }
+        })
+      }
+    })
   },
 
   //事件处理函数

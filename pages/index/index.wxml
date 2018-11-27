@@ -9,14 +9,23 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
-    
   </view>
 
-  <view class="section__ctn">
-        <image mode="scaleToFill" src="{{src}}"></image>
-  </view>
+   <view class="section section_gap" wx:for="{{images}}" wx:for-item="item">
+      <view class="section__title">{{item.text}}</view>
+      <view class="section__ctn">
+        <image style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{imageMode}}" src="{{item.src}}"></image>
+      </view>
+    </view>
 
-  <view>
-    <text class="user-motto" bindtap="countclick">记录点击次数 <text class="count-num">{{clicknum}}</text></text>
-  </view>
+  <button bindtap="chooseImage">添加图片</button>
+  
+  <button bindtap="saveImage">保存海报</button>
+
+  <canvas canvas-id="myCanvas" class="canvas"></canvas>
+<view class='container'>
+<canvas canvas-id='testCanvas' class='testCanvas'></canvas>
+<button bindtap='clickMe' open-type="getuserinfo">点击我生成图片保存相册</button>
+</view>
+
 </view>
