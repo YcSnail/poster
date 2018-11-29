@@ -1,10 +1,9 @@
 
-#canvas{
-
+#myCanvas{
     border: 1px solid #ff0000;
     display: block;
     margin: 0 auto;
-    width: 300px;
-    height: 200px
+    width :600px;
+    height :400px;
 }
 

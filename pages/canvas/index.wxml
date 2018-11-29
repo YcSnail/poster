@@ -1,6 +1,1 @@
-<canvas canvas-id="canvas" id='canvas'></canvas>
-<view>test</view>
-
-
-
-<canvas style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
+<canvas canvas-id="myCanvas" id="myCanvas"></canvas>
