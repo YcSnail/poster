@@ -85,6 +85,29 @@ Page({
     })
   },
 
+  upload:function(){
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        console.log('success');
+        console.log(res);
+        // const tempFilePaths = res.tempFilePaths
+      },
+      fail(res){
+        console.log('fail');
+        console.log(res);
+      },
+      complete(res){
+        console.log('complete');
+        console.log(res);
+      }
+    })
+
+  },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
