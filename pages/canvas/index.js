@@ -16,18 +16,52 @@ const app = getApp();
 Page({
     data: {
 
-        bgimg: '../../images/bg.jpg',
+        showInput:{
+            hiddenmodalput:true,
+            showText :'',
+            nowId : ''
+        },
+
+        imgObj:{
+            // 背景图片
+            bgimg:{
+                src:'../../images/bg.jpg',
+                mode:'scaleToFill'
+            },
+            // 用户图片
+            userImg:{
+                src : '../../images/user.png',
+                mode :''
+            },
+
+            // 示例图片
+            uploadImg:{
+                src : '../../images/tt.jpg',
+                mode :'scaleToFill'
+            },
+        },
+
+        textObj: {
+            crop: '草莓',
+            userName: '张三',
+            address: '江苏省无锡市南长区五星家园',
+            text1: '点击修改文字',
+            text2: '点击修改文字',
+        },
+
         bgImgObj: {}
 
     },
 
     onLoad: function () {
 
+        return false;
+
         // 渲染背景图
         const ctx = wx.createCanvasContext('myCanvas')
 
         ctx.width = 412;
-        ctx.height = 732;
+        ctx.height = 880;
 
         var _that = this;
 
@@ -48,6 +82,50 @@ Page({
 
     },
 
+    changeText:function(e){
+
+        // 获取修改文字ID
+        var textId = e.currentTarget.id;
+        var tmpText = e._relatedInfo.anchorTargetText;
+
+        this.setData({
+            showInput: {
+                hiddenmodalput: !this.data.showInput.hiddenmodalput,
+                showText : tmpText,
+                nowId :textId
+            }
+        });
+
+        console.log(e);
+        // console.log(tmpText);
+
+
+    },
+
+    //取消按钮
+    textCancel: function(e){
+        console.log(e);
+
+        this.setData({
+            showInput: {
+                hiddenmodalput: true,
+                showText : ''
+            }
+        });
+    },
+    //确认
+    textConfirm: function(e){
+
+        console.log(e);
+
+        this.setData({
+            showInput: {
+                hiddenmodalput: true,
+                showText : ''
+            }
+        });
+
+    },
     setCavas :function (canvasObj,res) {
 
         console.log(res)
