@@ -29,15 +29,27 @@ Page({
                 mode:'scaleToFill'
             },
             // 用户图片
-            userImg:{
-                src : '../../images/user.png',
-                mode :''
-            },
-
             // 示例图片
             uploadImg:{
-                src : '../../images/tt.jpg',
-                mode :'scaleToFill'
+                mode :'scaleToFill',
+                userimg:{
+                    src:'../../images/user.png'
+                },
+                img1:{
+                    src : '../../images/tt.jpg',
+
+                },
+                img2:{
+                    src : '../../images/tt.jpg',
+
+                },
+                img3:{
+                    src : '../../images/tt.jpg',
+
+                },
+                img4:{
+                    src : '../../images/tt.jpg',
+                },
             },
         },
 
@@ -79,7 +91,6 @@ Page({
 
         // 页面渲染后 执行
 
-
     },
 
     changeText:function(e){
@@ -104,20 +115,18 @@ Page({
 
     //取消按钮
     textCancel: function(e){
-        console.log(e);
 
         this.setData({
             showInput: {
                 hiddenmodalput: true,
-                showText : ''
+                showText : '',
+                nowId :''
             }
         });
     },
     //确认
     textConfirm: function(e){
 
-        console.log(e);
-
         this.setData({
             showInput: {
                 hiddenmodalput: true,
@@ -126,6 +135,48 @@ Page({
         });
 
     },
+
+    // 获取input输入框的文字
+    getInput:function(e){
+        var inputText = e.detail.value;
+        var nowId = this.data.showInput.nowId;
+        var newtextObj = this.data.textObj;
+        newtextObj[nowId] = inputText;
+        this.setData({
+            textObj:newtextObj
+        });
+
+    },
+
+    chooseImg :function(e){
+
+        // 获取当前点击ID
+        var textId = e.currentTarget.id;
+
+        var that = this;
+
+        // 调用上传图片
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success (res) {
+                // tempFilePath可以作为img标签的src属性显示图片
+                const setImgSrc = res.tempFilePaths[0];
+
+                var newimgObj = that.data.imgObj;
+                newimgObj.uploadImg[textId]['src'] = setImgSrc;
+
+                that.setData({
+                    imgObj:newimgObj
+                });
+
+            }
+        })
+
+
+    },
+
     setCavas :function (canvasObj,res) {
 
         console.log(res)

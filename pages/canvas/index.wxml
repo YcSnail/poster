@@ -5,7 +5,7 @@
         <view class="header">
 
             <modal hidden="{{showInput.hiddenmodalput}}" title="修改信息" confirm-text="保存" cancel-text="取消" bindcancel="textCancel" bindconfirm="textConfirm">
-                <input type='text' placeholder="请输入内容" auto-focus value="{{showInput.showText}}"/>
+                <input type='text' placeholder="请输入内容" auto-focus value="{{showInput.showText}}" bindinput="getInput" />
             </modal>
 
             <view class="top-view title-view">
@@ -14,7 +14,7 @@
             </view>
 
             <view class="top-view user-view">
-                <image class="user-img" src="{{imgObj.userImg.src}}" mode="{{imgObj.userImg.mode}}"></image>
+                <image class="user-img" src="{{imgObj.uploadImg.userimg.src}}" id="userimg" bindtap="chooseImg" mode="{{imgObj.userImg.mode}}"></image>
             </view>
 
             <view class="top-view user-info-view">
@@ -40,12 +40,12 @@
 
             <view class="body-img-list">
                 <view class="img-item">
-                    <image src="{{imgObj.uploadImg.src}}" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <image src="{{imgObj.uploadImg.img1.src}}" id="img1" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
                     <view class="img-title">示范田</view>
                 </view>
 
                 <view class="img-item">
-                    <image src="{{imgObj.uploadImg.src}}" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <image src="{{imgObj.uploadImg.img2.src}}" id="img2" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
                     <view class="img-title img-title2">对照田</view>
                 </view>
             </view>
@@ -53,28 +53,23 @@
 
             <view class="body-img-list">
                 <view class="img-item">
-                    <image src="{{imgObj.uploadImg.src}}" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <image src="{{imgObj.uploadImg.img3.src}}" id="img3" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
                     <view class="img-title">示范田</view>
                 </view>
 
                 <view class="img-item">
-                    <image src="{{imgObj.uploadImg.src}}" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <image src="{{imgObj.uploadImg.img4.src}}" id="img4" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
                     <view class="img-title img-title2">对照田</view>
                 </view>
             </view>
             <view class="img-text" bindtap="changeText" id="text2">{{textObj.text2}}</view>
 
-
         </view>
-
-
 
         <view class="footer"></view>
 
     </view>
 </view>
-
-
 
 
 <!--<canvas canvas-id="myCanvas" id="myCanvas"></canvas>-->
