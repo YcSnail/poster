@@ -1,0 +1,81 @@
+<!--<button class="save-img" type="default" bindtap="save_img">保存海报</button>-->
+
+<canvas id="myCanvas" canvas-id="firstCanvas"></canvas>
+
+<view class="contain">
+
+    <button class="save-img" type="default" bindtap="setCavas">保存海报</button>
+
+    <view class="content">
+        
+        <view class="header">
+
+            <modal hidden="{{showInput.hiddenmodalput}}" title="修改信息" confirm-text="保存" cancel-text="取消" bindcancel="textCancel" bindconfirm="textConfirm">
+                <input type='text' placeholder="请输入内容" auto-focus value="{{showInput.showText}}" bindinput="getInput" />
+            </modal>
+
+            <view class="top-view title-view">
+                <view class="top">好产品</view>
+                <view class="bottom">用结果来说话</view>
+            </view>
+
+            <view class="top-view user-view">
+                <image class="user-img" src="{{imgObj.uploadImg.userimg.src}}" id="userimg" bindtap="chooseImg" mode="{{imgObj.userImg.mode}}"></image>
+            </view>
+
+            <view class="top-view user-info-view">
+                <view class="info-view">
+                    <view class="info-text info-text-left">作物</view>
+                    <view class="info-text info-text-right" id="crop" bindtap="changeText">{{textObj.crop}}</view>
+                </view>
+                <view class="info-view">
+                    <view class="info-text info-text-left">姓名</view>
+                    <view class="info-text info-text-right" id="userName" bindtap="changeText">{{textObj.userName}}</view>
+                </view>
+                <view class="info-view info-address">
+                    <view class="info-text info-text-left">地址</view>
+                    <view class="info-text info-text-right" id="address" bindtap="changeText">{{textObj.address}}</view>
+                </view>
+            </view>
+
+        </view>
+
+        <view class="body-line"></view>
+
+        <view class="body">
+
+            <view class="body-img-list">
+                <view class="img-item">
+                    <image src="{{imgObj.uploadImg.img1.src}}" id="img1" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <view class="img-title">示范田</view>
+                </view>
+
+                <view class="img-item">
+                    <image src="{{imgObj.uploadImg.img2.src}}" id="img2" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <view class="img-title img-title2">对照田</view>
+                </view>
+            </view>
+            <view class="img-text" bindtap="changeText" id="text1">{{textObj.text1}}</view>
+
+            <view class="body-img-list">
+                <view class="img-item">
+                    <image src="{{imgObj.uploadImg.img3.src}}" id="img3" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <view class="img-title">示范田</view>
+                </view>
+
+                <view class="img-item">
+                    <image src="{{imgObj.uploadImg.img4.src}}" id="img4" bindtap="chooseImg" mode="{{imgObj.uploadImg.mode}}"></image>
+                    <view class="img-title img-title2">对照田</view>
+                </view>
+            </view>
+            <view class="img-text" bindtap="changeText" id="text2">{{textObj.text2}}</view>
+
+        </view>
+
+        <view class="footer"></view>
+
+    </view>
+</view>
+
+
+<!--<canvas canvas-id="myCanvas" id="myCanvas"></canvas>-->
