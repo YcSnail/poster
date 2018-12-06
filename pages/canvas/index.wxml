@@ -8,9 +8,8 @@
                 <input type='text' placeholder="请输入内容" auto-focus value="{{showInput.showText}}" bindinput="getInput" />
             </modal>
 
-            <view class="top-view title-view">
-                <view class="top">好产品</view>
-                <view class="bottom">用结果来说话</view>
+            <view class="top-view">
+
             </view>
 
             <view class="top-view user-view">
