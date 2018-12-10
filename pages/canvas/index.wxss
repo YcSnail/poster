@@ -13,10 +13,6 @@
     width: 100%;
 }
 
-.body{
-    font-size: 30rpx;
-}
-
 .content{
     width: 600rpx;
     height : 1060rpx;
@@ -30,7 +26,8 @@
     display:flex;
     font-size:22rpx;
     height: 156rpx;
-    padding-top: 120rpx;
+    width: 1010prx;
+    padding:122rpx 26rpx 0 26rpx;
 }
 
 .header .top-view{
@@ -117,6 +114,7 @@
 .body{
     height: auto;
     width: 1010prx;
+    font-size: 30rpx;
 }
 
 .body-img-list{
