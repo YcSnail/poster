@@ -1,5 +1,13 @@
+<view style="position:fixed;top:999999999999999999999rpx;">
+    <canvas id="myCanvas" canvas-id="firstCanvas"></canvas>
+</view>
+
 
 <view class="contain">
+    <view class="btn-list">
+        <button class="save-img" type="warn" bindtap="saveCanvas">保存海报</button>
+    </view>
+
     <view class="content">
         
         <view class="header">
