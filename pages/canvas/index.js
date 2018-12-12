@@ -31,7 +31,7 @@ Page({
             // 用户图片
             // 示例图片
             uploadImg:{
-                mode :'scaleToFill',
+                mode :'aspectFill',
                 userimg:{
                     src:'../../images/user.png'
                 },
